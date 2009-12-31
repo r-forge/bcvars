@@ -1,2 +1,0 @@
-importFrom("raster", raster, calc)
-export(BioCalc,LoadMonthlyFiles,p1Calc,p2Calc,p3Calc,p4Calc,p5Calc,p6Calc,p7Calc,p8Calc,p9Calc,p10Calc,p11Calc,p12Calc,p13Calc,p14Calc,p15Calc,p16Calc,p17Calc,p18Calc,p19Calc)
