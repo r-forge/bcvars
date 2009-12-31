@@ -1,0 +1,12 @@
+Package: BioCalc
+Type: Package
+Title: Bioclim Variables Calculator
+Version: 0.1
+Date: 2009-12-31
+Depends: raster, R (>= 2.8.0)
+Suggests: rgdal (>= 0.5-33)
+Author: Julian Ramirez
+Maintainer: Julian Ramirez <dawnpatrolmustaine@gmail.com>
+Description: Package for calculating bioclimatic variables based upon monthly data
+License: GPL (>=3)
+LazyLoad: yes
