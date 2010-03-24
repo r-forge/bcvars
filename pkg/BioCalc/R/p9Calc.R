@@ -57,7 +57,7 @@ p9Calc <- function(rlist, rlist2, outfile, format='') {
 				}
 			}
 			
-			p9 <- raster(PpTaStack, index=0)
+			p9 <- raster(PpTaStack, 0)
 			filename(p9) <- outfile
 			
 			pb <- pbCreate(nrow(PpTaStack), type='text', style=3)

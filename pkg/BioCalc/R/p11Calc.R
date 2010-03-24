@@ -44,7 +44,7 @@ p11Calc <- function(rlist, outfile, format='') {
 				}
 			}
 			
-			p11 <- raster(TaStack, index=0)
+			p11 <- raster(TaStack, 0)
 			filename(p11) <- outfile
 			
 			pb <- pbCreate(nrow(TaStack), type='text', style=3)

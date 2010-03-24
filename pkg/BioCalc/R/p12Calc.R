@@ -13,7 +13,7 @@ p12Calc <- function(rlist, outfile, format='') {
 			cat("", "\n", "Total annual rainfall (P12)", "\n")
 			
 			tmpstack <- stack(rlist)
-			rs <- raster(tmpstack, index=1)
+			rs <- raster(tmpstack, 1)
 			
 			if (!canProcessInMemory(rs, 2)) {
 				b12fun <- function(x) {sum(x)}
@@ -24,9 +24,9 @@ p12Calc <- function(rlist, outfile, format='') {
 				
 				for (i in 1:12) {
 					if (i == 1) { 
-						p12 <- readAll(raster(tmpstack, index=i))
+						p12 <- readAll(raster(tmpstack, i))
 					} else {
-						p12 <- p12 + readAll(raster(tmpstack, index=i))
+						p12 <- p12 + readAll(raster(tmpstack, i))
 					}
 					pbStep(pb, i)
 				}

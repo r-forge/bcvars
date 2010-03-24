@@ -13,7 +13,7 @@ p1Calc <- function(rlist, outfile, format='') {
 			cat("", "\n", "Annual Mean Temperature (P1)", "\n")
 			
 			tmpstack <- stack(rlist)
-			rs <- raster(tmpstack, index=1)
+			rs <- raster(tmpstack, 1)
 			
 			if (!canProcessInMemory(rs, 3)) {
 				b1fun <- function(x) {round(mean(x))}
@@ -25,9 +25,9 @@ p1Calc <- function(rlist, outfile, format='') {
 				pb <- pbCreate(12, type='text', style=3)
 				for (i in 1:12) {
 					if (i == 1) { 
-						p1 <- readAll(raster(tmpstack, index=i))
+						p1 <- readAll(raster(tmpstack, i))
 					} else {
-						p1 <- p1 + readAll(raster(tmpstack, index=i))
+						p1 <- p1 + readAll(raster(tmpstack, i))
 					}
 					pbStep(pb, i)
 				}

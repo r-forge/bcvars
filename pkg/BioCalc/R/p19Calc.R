@@ -57,7 +57,7 @@ p19Calc <- function(rlist, rlist2, outfile, format='') {
 				}
 			}
 			
-			p19 <- raster(PpTaStack, index=0)
+			p19 <- raster(PpTaStack, 0)
 			filename(p19) <- outfile
 			
 			pb <- pbCreate(nrow(PpTaStack), type='text', style=3)

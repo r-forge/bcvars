@@ -43,7 +43,7 @@ p16Calc <- function(rlist, outfile, format='') {
 				}
 			}
 			
-			p16 <- raster(PpStack, index=0)
+			p16 <- raster(PpStack, 0)
 			filename(p16) <- outfile
 			
 			pb <- pbCreate(nrow(PpStack), type='text', style=3)
