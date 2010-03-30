@@ -54,13 +54,15 @@ LoadMonthlyFiles <- function(folder, ext='', varbl='prec', format='ascii') {
 					rm(tmpstack)
 				} else {
 					
-					assign(paste(tolower(varbl), i, sep="_"), round(mean(tmn + tmx)))
+					tmpstack <- stack(tmn, tmx)
+					assign(paste(tolower(varbl), i, sep="_"), round(mean(tmpstack)))
 					
 					assign(paste(tolower(varbl), i, sep="_"), writeRaster(get(paste(tolower(varbl), i, sep="_")), paste(folder, "//", prefix, i, ext, sep=""), overwrite=TRUE, format=fmt))
 				}
 				
 				rm(tmn)
 				rm(tmx)
+				rm(tmpstack)
 				
 			} else {
 				assign(paste(tolower(varbl), i, sep="_"), raster(paste(folder, "//", prefix, i, ext, sep="")))
