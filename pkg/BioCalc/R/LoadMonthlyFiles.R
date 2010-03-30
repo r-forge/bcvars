@@ -39,7 +39,7 @@ LoadMonthlyFiles <- function(folder, ext='', varbl='prec', format='ascii') {
 		
 		if (tolower(varbl) == 'tmean') {
 			if (!file.exists(paste(folder, "//", prefix, i, ext, sep=""))) {
-				cat("Calculating tmean for month ", i)
+				#cat("Calculating tmean for month ", i)
 				
 				tmn <- raster(paste(folder, "//", "tmin_", i, ext, sep=""))
 				tmx <- raster(paste(folder, "//", "tmax_", i, ext, sep=""))
@@ -54,8 +54,7 @@ LoadMonthlyFiles <- function(folder, ext='', varbl='prec', format='ascii') {
 					rm(tmpstack)
 				} else {
 					
-					tmpstack <- stack(tmn, tmx)
-					assign(paste(tolower(varbl), i, sep="_"), round(mean(tmpstack)))
+					assign(paste(tolower(varbl), i, sep="_"), round((tmn + tmx) * 0.5))
 					
 					assign(paste(tolower(varbl), i, sep="_"), writeRaster(get(paste(tolower(varbl), i, sep="_")), paste(folder, "//", prefix, i, ext, sep=""), overwrite=TRUE, format=fmt))
 				}
@@ -86,4 +85,4 @@ LoadMonthlyFiles <- function(folder, ext='', varbl='prec', format='ascii') {
 	return(MonList)
 }
 
-# listt <- LoadMonthlyFiles("C:\\CIAT_work\\_tools\\BioCalc_testing", ext='.asc', varbl='tmean', format='ascii')
+# listt <- LoadMonthlyFiles("C://CIAT_work//_tools//BioCalc_test", ext='.asc', varbl='tmean', format='ascii')
